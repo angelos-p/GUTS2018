@@ -28,7 +28,7 @@ class SongRecognizer:
             offset = result.get('metadata').get('music')[0].get('play_offset_ms')
             duration = result.get('metadata').get('music')[0].get('duration_ms')
             print("duration_ms=" + str(ACRCloudRecognizer.get_duration_ms_by_file(file)))
-            value = (artist, title, float(offset)/duration)
+            value = (artist, title, float(offset)/duration, duration)
         else:
             value = None
         print(value)
