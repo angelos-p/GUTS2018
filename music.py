@@ -1,2 +1,0 @@
-def musicMethod():
-    print "music"

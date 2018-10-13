@@ -1,2 +1,2 @@
-def weatherMethod():
+def weatherMethod(sentence):
     print "weather"
