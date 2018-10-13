@@ -4,6 +4,7 @@ from polly_talk import make_polly_talk
 import multiprocessing as mp
 import time
 import subprocess
+import webbrowser, os
 
 def printHello(print_output):
     for x in range(5):
@@ -11,6 +12,7 @@ def printHello(print_output):
     print_output.put("hello")
 
 def main():
+    webbrowser.open('file://' + os.path.realpath("welcome.html"))
     annoy = Annoying_response()
     while True:
         print_output = mp.Queue()
