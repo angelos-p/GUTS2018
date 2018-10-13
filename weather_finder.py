@@ -16,24 +16,21 @@ class Weather_find:
     def __init__(self):
         
         # Define the sarcasm lists categorised by weather
+  
         sun = ["I hope you remembered the sunscreen this time or else you will look like a lobster again.",
-        "Looks like it is your lucky day. It's sunny in Glasgow.",
-        "Don't forget to wear your hat or else your nose will look like a tomato again.",
-        "Don't wear a jacket or you will get pit stains and everyone will be staring at you."]
-
-        cloud = ["Just another day in Glasgow.",
-        "It may rain or it may not. Guess you will have to find out by going outside.",
-        "Cloudy again. One more excuse to stay in."
+        "Looks like it is your lucky day. It's sunny in Glasgow."]
+               ]
+        cloud = ["It may rain or it may not. Guess you will have to find out by going outside.",
+        "One more excuse for you to stay inside."
         "Those clouds mean it might rain if it was not obvious already."]
 
         rain = ["Don't forget to get an umbrella.",
-        "Looks like you will ruin your hair if you go out now, or make it worse for that matter",
+        "Looks like you will ruin your hair if you go out now, or make it worse for that matter.",
         "Someone will be soaking wet again, haha.",
         "Better stay inside today. It's not like you have any friends waiting for you."]
 
         back_up = ["Better stay inside today. It's not like you have any friends waiting for you.", 
-        "It may rain or it may not. Guess you will have to find out by going outside.", 
-        "I hope you remembered the sunscreen this time or else you will look like a lobster again."]
+        "It may rain or it may not. Guess you will have to find out by going outside."]
         
         condition = self.get_weather()
 
@@ -72,11 +69,11 @@ class Weather_find:
         Check which list name better matched the weather in Glasgow
         """
         if self.similar(condition, "sun") > 0.5:
-            return("It's sunny. {}".format(random.choice(sun)))
+            return("It's sunny right now. {}".format(random.choice(sun)))
         elif self.similar(condition, "cloud") > 0.5:
-            return("It's cloudy. {}".format(random.choice(cloud)))
+            return("It's cloudy right now. {}".format(random.choice(cloud)))
         elif self.similar(condition, "rain") > 0.5:
-            return("It's raining. {}".format(random.choice(rain)))
+            return("It's raining right now. {}".format(random.choice(rain)))
         else:
             return(random.choice(back_up))
 
