@@ -1,12 +1,11 @@
 import speech_recognition as sr
 import random
-import webbrowser
+import subprocess
 
 from music.recorder import AudioRecorder
 from os import path
 from polly_talk import make_polly_talk
-
-
+from difflib import SequenceMatcher
 
 class Annoying_response:
 
@@ -23,6 +22,16 @@ class Annoying_response:
 
         make_polly_talk(outcome)
 
+    def checkIfExists(self, word_list, target):
+        """
+        Checks whether any of the words in the list exists in the string
+        """
+        for word in word_list:
+            if word in target:
+                return True
+        return False
+
+
     def getResponse(self, user_input):
         """
         User input is a string converted from the audio file saved.
@@ -35,19 +44,19 @@ class Annoying_response:
                 'Doctor: Im sorry but you suffer from a terminal illness and have only 10 to live.Patient: What do you mean, 10? 10 what? Months? Weeks?!"Doctor: Nine.']
 
         
-        cmd1 = ['tell a joke', 'tell me a joke', 'say something funny', 'tell something funny']
-        cmd2 = ['open youtube', 'i want to watch a video', 'play a video']
-        cmd3 = ['who made you', 'who created you']
+        cmd1 = ['joke', 'funny']
+        cmd2 = ['youtube', 'video']
+        cmd3 = ['made', 'created']
 
-        if(user_input in greetings): 
-            return random.choice(greetings)
-        elif(user_input in cmd3):
-            return random.choice(creator)
-        elif(user_input in cmd1):
+        if(self.checkIfExists(cmd1, user_input)): 
             return random.choice(jokes)
-        elif(user_input in cmd2):
-            webbrowser.open("www.youtube.com/watch?v=dQw4w9WgXcQ")
+        elif(self.checkIfExists(cmd3, user_input)):
+            return random.choice(creator)
+        elif(self.checkIfExists(cmd2, user_input)):
+            subprocess.call(['firefox', 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'])
             return "Haha"
+        elif(self.checkIfExists(greetings, user_input)):
+            return random.choice(greetings)
         else:
             return "I didn't understand you once again."
 
