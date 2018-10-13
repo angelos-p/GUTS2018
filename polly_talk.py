@@ -7,8 +7,8 @@ def make_polly_talk(outcome, speed=85):
         Gets the AWS Polly API to read out the outcome.
         """
         polly_client = boto3.Session(
-                aws_access_key_id="AKIAIDWDTEPNOE2IHSGQ",                     
-                aws_secret_access_key="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",
+                aws_access_key_id="",                     
+                aws_secret_access_key="",
                 region_name='us-west-2').client('polly')
         text = '<speak><prosody rate="{}%">{}</prosody></speak>'.format(speed, outcome)
         response = polly_client.synthesize_speech(VoiceId='Matthew',
