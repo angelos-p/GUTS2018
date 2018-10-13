@@ -14,17 +14,23 @@ commands = {
 }
 
 def main():
+    previous = "/weather"
+
     while True:
         command = str(raw_input("Hi Please tell me what to do: "))
         if command == "" or command[0] != "/":
             print "Please enter a valid command!"
-            continue
         else:
             if command == "/all":
-                random.choice(commands.values())()
+                choice = random.choice(commands.keys())
+                while choice == previous:
+                    previous = choice
+                    choice = random.choice(commands.keys())
+                previous = choice
+                commands[choice]()
             elif command in commands.keys():
+                previous = command
                 commands[command]()
-                continue
             elif command == "/quit":
                 print "Goodbye!"
                 break
