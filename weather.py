@@ -1,0 +1,2 @@
+def weatherMethod():
+    print "weather"

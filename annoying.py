@@ -1,0 +1,2 @@
+def annoyingMethod():
+    print "annoying"

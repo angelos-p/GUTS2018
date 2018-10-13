@@ -1,0 +1,2 @@
+def lightMethod():
+    print "light"
