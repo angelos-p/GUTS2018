@@ -5,17 +5,21 @@ commands = {
     "/music": "music",
     "/annoying": "annoying"
 }
+weather = False
+light = False
+music = False
+annoying = False
 
 def main():
     while True:
-        command = str(input("Hi Please tell me what to do: "))
+        command = str(raw_input("Hi Please tell me what to do: "))
         if command == "" or command[0] != "/":
-            print("Please enter a valid command!")
+            print "Please enter a valid command!"
         else:
             if command in commands.keys():
-                print(commands[command])
+                print commands[command]
             elif command == "/quit":
-                print("Goodbye!")
+                print "Goodbye!"
                 break
             else:
-                print("Command not found!")
+                print "Command not found!"
