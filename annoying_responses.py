@@ -10,17 +10,16 @@ from difflib import SequenceMatcher
 class Annoying_response:
 
     def __init__(self):
-        AUDIO_FILE = path.join(path.dirname(path.realpath(__file__)), "output.wav")
-
+        self.AUDIO_FILE = path.join(path.dirname(path.realpath(__file__)), "output.wav")
         self.r = sr.Recognizer()
-        with sr.AudioFile(AUDIO_FILE) as source:
+    
+    def make_response(self, annoy_output):
+        with sr.AudioFile(self.AUDIO_FILE) as source:
             audio = self.r.record(source)
 
         user_input = self.convertUserVoiceToText(audio)
-
         outcome = self.getResponse(user_input)
-
-        make_polly_talk(outcome)
+        annoy_output.put(outcome)        
 
     def checkIfExists(self, word_list, target):
         """
@@ -67,5 +66,3 @@ class Annoying_response:
             return("Google Speech Recognition could not understand audio")
         except sr.RequestError as e:
             return("Could not request results from Google Speech Recognition service; {0}".format(e))
-
-annoy = Annoying_response()
