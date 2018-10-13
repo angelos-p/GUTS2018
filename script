@@ -9,3 +9,16 @@ Using image processing; live weather and lyrical data; neural networks for text 
     - Aggressive weather updates {...}
     - Music taste critic and sing along buddy {...}
     - And a colourful conversationist {...}
+
+
+Technologies Utilised:
+    -AWS Polly
+    -Google Speech To text
+    -ACR Cloud
+    -Lyrics Wikia
+    -PyAudio
+    -Flask
+    -Yahoo Weather API
+    -OpenCV
+    -difflib
+    -Python Multiprocessing
