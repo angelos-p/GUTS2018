@@ -72,11 +72,11 @@ class Weather_find:
         Check which list name better matched the weather in Glasgow
         """
         if self.similar(condition, "sun") > 0.5:
-            return(sun[random.randrange(0, len(sun))])
+            return("It's sunny. {}".format(random.choice(sun)))
         elif self.similar(condition, "cloud") > 0.5:
-            return(cloud[random.randrange(0, len(cloud))])
+            return("It's cloudy. {}".format(random.choice(cloud)))
         elif self.similar(condition, "rain") > 0.5:
-            return(rain[random.randrange(0, len(rain))])
+            return("It's raining. {}".format(random.choice(rain)))
         else:
             return(random.choice(back_up))
 
