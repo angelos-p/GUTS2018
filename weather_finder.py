@@ -30,10 +30,14 @@ class Weather_find:
         "Looks like you will ruin your hair if you go out now, or make it worse for that matter",
         "Someone will be soaking wet again, haha.",
         "Better stay inside today. It's not like you have any friends waiting for you."]
+
+        back_up = ["Better stay inside today. It's not like you have any friends waiting for you.", 
+        "It may rain or it may not. Guess you will have to find out by going outside.", 
+        "I hope you remembered the sunscreen this time or else you will look like a lobster again."]
         
         condition = self.get_weather()
 
-        outcome = self.similarity_checker(condition, sun, cloud, rain)
+        outcome = self.similarity_checker(condition, sun, cloud, rain, back_up)
 
         make_polly_talk(outcome)
 
@@ -63,7 +67,7 @@ class Weather_find:
         engine.say(outcome)
         engine.runAndWait()
 
-    def similarity_checker(self, condition, sun, cloud, rain):
+    def similarity_checker(self, condition, sun, cloud, rain, back_up):
         """
         Check which list name better matched the weather in Glasgow
         """
@@ -73,5 +77,7 @@ class Weather_find:
             return(cloud[random.randrange(0, len(cloud))])
         elif self.similar(condition, "rain") > 0.5:
             return(rain[random.randrange(0, len(rain))])
+        else:
+            return(random.choice(back_up))
 
 weather = Weather_find()
