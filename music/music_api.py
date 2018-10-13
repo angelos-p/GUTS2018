@@ -21,15 +21,16 @@ class SongRecognizer:
         result = re.recognize_by_file(file, 0, 10)
         result = json.loads(result)
         success = result.get('status').get('msg')
-        print(result)
         if success == 'Success':
             #print(result.get('metadata').get('music')[0])
             artist = result.get('metadata').get('music')[0].get('artists')[0].get('name')
             title = result.get('metadata').get('music')[0].get('title')
+            offset = result.get('metadata').get('music')[0].get('play_offset_ms')
+            duration = result.get('metadata').get('music')[0].get('duration_ms')
             print("duration_ms=" + str(ACRCloudRecognizer.get_duration_ms_by_file(file)))
-            value = (artist, title)
+            value = (artist, title, float(offset)/duration)
         else:
-            value = "Song not found"
+            value = None
         print(value)
-        return None
+        return value
         
