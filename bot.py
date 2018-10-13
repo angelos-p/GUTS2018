@@ -13,9 +13,8 @@ def main():
     previous = "/weather"
 
     while True:
-        string = str(raw_input("Hi Please tell me what to do: "))
-        command= string.split()[0]
-        sentence = string.split(" ",1)[1]
+        command = str(raw_input("Please tell me what to do: "))
+        sentence=""
         if command == "" or command[0] != "/":
             print "Please enter a valid command!"
         else:
@@ -25,9 +24,13 @@ def main():
                     previous = choice
                     choice = random.choice(commands.keys())
                 previous = choice
+                if choice == "/polly":
+                    sentence = str(raw_input("Add a sentence: "))
                 commands[choice](sentence)
             elif command in commands.keys():
                 previous = command
+                if command == "/polly":
+                    sentence = str(raw_input("Add a sentence: "))
                 commands[command](sentence)
             elif command == "/quit":
                 print "Goodbye!"
