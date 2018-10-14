@@ -1,6 +1,7 @@
 import speech_recognition as sr
 import random
 import subprocess
+import webbrowser
 
 from music.recorder import AudioRecorder
 from os import path
@@ -36,7 +37,6 @@ class Annoying_response:
         User input is a string converted from the audio file saved.
         """
 
-        greetings = ["hey there", "hello", "hi", "Hai", "hey"]
         creator = ["I was created by the Chad Developers", "I was created by the winners of this Hackathon.", "Some guys whom I never got to know"]
         jokes = ['Can a kangaroo jump higher than a house? Of course, a house doesnt jump at all.', 
                 'My dog used to chase people on a bike a lot. It got so bad, finally I had to take his bike away.', 
@@ -52,10 +52,8 @@ class Annoying_response:
         elif(self.checkIfExists(cmd3, user_input)):
             return random.choice(creator)
         elif(self.checkIfExists(cmd2, user_input)):
-            subprocess.call(['firefox'])
+            webbrowser.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
             return "Haha"
-        elif(self.checkIfExists(greetings, user_input)):
-            return random.choice(greetings)
         else:
             return "Speak clearly for once."
 

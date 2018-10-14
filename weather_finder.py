@@ -9,7 +9,7 @@ from difflib import SequenceMatcher
 import random
 import boto3
 import pyttsx
-from polly_talk import make_polly_talk
+#from polly_talk import make_polly_talk
 
 class Weather_find:
 
@@ -18,10 +18,10 @@ class Weather_find:
         # Define the sarcasm lists categorised by weather
   
         sun = ["I hope you remembered the sunscreen this time or else you will look like a lobster again.",
-        "Looks like it is your lucky day. It's sunny in Glasgow."]
-               ]
+        "Looks like it is your lucky day. It's a rare occurence in Glasgow."]
+
         cloud = ["It may rain or it may not. Guess you will have to find out by going outside.",
-        "One more excuse for you to stay inside."
+        "One more excuse for you to stay inside and play videogames by yourself."
         "Those clouds mean it might rain if it was not obvious already."]
 
         rain = ["Don't forget to get an umbrella.",
@@ -36,7 +36,7 @@ class Weather_find:
 
         outcome = self.similarity_checker(condition, sun, cloud, rain, back_up)
 
-        make_polly_talk(outcome)
+        #make_polly_talk(outcome)
 
         #self.make_python_talk(outcome)
 

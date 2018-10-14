@@ -16,7 +16,11 @@ def do_music(music_output):
     result = recognizer.recognize_song(FILE)
     if result:
         lyrics = lyric_finder.find_lyrics(result[0], result[1], result[2])
-        rate = ((float(len(lyrics.split()))/(result[3]/1000))/0.4) * 110
+        if lyrics:
+            rate = ((float(len(lyrics.split()))/(result[3]/1000))/0.4) * 110
+        else:
+            lyrics = "How am I supposed to know the lyrics for that? What am I Shazam or something?"
+            rate = 100
         music_output.put((lyrics, rate))
     else:
         music_output.put(None)
