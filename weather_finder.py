@@ -9,7 +9,7 @@ from difflib import SequenceMatcher
 import random
 import boto3
 import pyttsx
-from polly_talk import make_polly_talk
+#from polly_talk import make_polly_talk
 
 class Weather_find:
 
@@ -36,7 +36,7 @@ class Weather_find:
 
         outcome = self.similarity_checker(condition, sun, cloud, rain, back_up)
 
-        make_polly_talk(outcome)
+        #make_polly_talk(outcome)
 
         #self.make_python_talk(outcome)
 
