@@ -12,5 +12,5 @@ class LyricFinder:
             index = int(progress*len(lyrics))
             sing_along = ' '.join(lyrics[index:(index+self.lyric_length)])
             return sing_along
-        except lyricwikia.LyricsNotFound:
-            print('Lyrics not found')
+        except lyricwikia.LyricsNotFound:        
+            return(None)
