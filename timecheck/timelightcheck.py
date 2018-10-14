@@ -4,9 +4,7 @@ import datetime
 class TimeLightCheck:
 
     def __init__(self):
-        lightlevel = self.brightness()
-        day = self.timecheck()
-        self.bedtime(lightlevel,day)
+        print('Light checker initialized')
 
     # Takes a picture with webcam and converts to hsv format to measure the brightness
     def brightness(self):
@@ -24,7 +22,7 @@ class TimeLightCheck:
         
         avg = sum/(rows*cols)
 
-        if avg < 128:
+        if avg < 50:
             lightlevel = 0
         else:
             lightlevel = 1  
@@ -32,17 +30,18 @@ class TimeLightCheck:
 
     # compares the current time to the time classed as night time
     def timecheck(self):
-        now = datetime.datetime.now().time() # time right now
+        #now = datetime.datetime.now().time() # time right now
+        now = datetime.time(hour=23)
         if datetime.time(hour=22) <= now or now <= datetime.time(hour=3):
             day = 0
         else:
             day = 1
         return day
     
-    def bedtime(self,lightlevel,day):
-        if lightlevel == 1 and day == 0:
-            print("Nighttime but still awake")
+    def bedtime(self, light_output):
+        self.lightlevel = self.brightness()
+        self.day = self.timecheck()
+        if self.lightlevel == 1 and self.day == 0:
+            light_output.put("I see you're up late again. I'm calling your mother.")
         else:
-            print("Do nothing")
-
-ambient = TimeLightCheck()
+            light_output.put(None)

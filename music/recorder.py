@@ -31,9 +31,9 @@ class AudioRecorder:
         self.wf.setsampwidth(self.p.get_sample_size(self.FORMAT))
         self.wf.setframerate(self.RATE)
         self.wf.writeframes(b''.join(frames))
+        self.wf.close()
 
     def destroy(self):
-        self.wf.close()
         self.stream.stop_stream()
         self.stream.close()
         self.p.terminate()
