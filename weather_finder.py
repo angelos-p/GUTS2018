@@ -21,7 +21,7 @@ class Weather_find:
         "Looks like it is your lucky day. It's a rare occurence in Glasgow."]
 
         cloud = ["It may rain or it may not. Guess you will have to find out by going outside.",
-        "One more excuse for you to stay inside."
+        "One more excuse for you to stay inside and play videogames by yourself."
         "Those clouds mean it might rain if it was not obvious already."]
 
         rain = ["Don't forget to get an umbrella.",
