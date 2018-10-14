@@ -18,10 +18,10 @@ class Weather_find:
         # Define the sarcasm lists categorised by weather
   
         sun = ["I hope you remembered the sunscreen this time or else you will look like a lobster again.",
-        "Looks like it is your lucky day. It's sunny in Glasgow."]
-               ]
+        "Looks like it is your lucky day. It's a rare occurence in Glasgow."]
+
         cloud = ["It may rain or it may not. Guess you will have to find out by going outside.",
-        "One more excuse for you to stay inside."
+        "One more excuse for you to stay inside and play videogames by yourself."
         "Those clouds mean it might rain if it was not obvious already."]
 
         rain = ["Don't forget to get an umbrella.",
