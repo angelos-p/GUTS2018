@@ -19,7 +19,7 @@ class Weather_find:
   
         sun = ["I hope you remembered the sunscreen this time or else you will look like a lobster again.",
         "Looks like it is your lucky day. It's sunny in Glasgow."]
-               ]
+
         cloud = ["It may rain or it may not. Guess you will have to find out by going outside.",
         "One more excuse for you to stay inside."
         "Those clouds mean it might rain if it was not obvious already."]
