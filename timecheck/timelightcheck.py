@@ -8,18 +8,19 @@ class TimeLightCheck:
         day = self.timecheck()
         self.bedtime(lightlevel,day)
 
+    # Takes a picture with webcam and converts to hsv format to measure the brightness
     def brightness(self):
         cam = cv2.VideoCapture(0)
         ret_val, img = cam.read()
         rows = img.shape[0]
         cols = img.shape[1]
 
-        # grayscale conversion
-        gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+        # Hue, Saturation, Value conversion
+        hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
         sum = 0
         for m in range(rows):
             for n in range(cols):
-                sum = sum + gray[m,n]
+                sum = sum + hsv[m,n][2]
         
         avg = sum/(rows*cols)
 
@@ -29,6 +30,7 @@ class TimeLightCheck:
             lightlevel = 1  
         return lightlevel
 
+    # compares the current time to the time classed as night time
     def timecheck(self):
         now = datetime.datetime.now().time() # time right now
         if datetime.time(hour=22) <= now or now <= datetime.time(hour=3):
