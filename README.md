@@ -4,6 +4,6 @@ Team Name: Chad Developers
 
 Team Members: Angelos Perivolaropoulos
               Leonidas Reppas
-              Andrew McLellan
+              Andrew Maclellan
               Georgia Constantinou
               Jordan Kalfas
