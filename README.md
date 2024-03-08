@@ -1,4 +1,12 @@
-# GUTS2018
+# Annoyatron
+## GUTS 2018 Hackathon
+This repository is the code used for the submission to the Goldman Sachs challenge at the 2018 GUTS Hackathon at the University of Glasgow.
+
+## Annoyatron
+Our personal assistant is rich with text to speech, speech recognition, and image processing for giving advice on weather, sleep schedules, and more!... Although, with a twist...
+The Annoyatron's number 1 goal is to frustrate and annoy its users through unwanted recommendations for bedtime, witty comments about the weather, and cheeky responses!
+
+----
 
 Team Name: Chad Developers
 
